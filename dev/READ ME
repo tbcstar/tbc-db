@@ -1,5 +1,4 @@
-This directory is intended for database developers use
-In order to use it, developers must set the DEV_UPDATES variable to 'YES' in their InstallFullDB.config file
-All updates in this directory must have the '*.sql' extension. All other files wil be ignored
-All updates in this directory will be applied AFTER all regular updates (DB, core, SD2, ACID...)
-
+该目录供数据库开发人员使用
+为了使用它，开发人员必须在其InstallFullDB.config文件中将DEV_UPDATES变量设置为“ YES”。
+此目录中的所有更新都必须具有“ * .sql”扩展名。所有其他文件将被忽略
+在所有常规更新（DB，核心，SD2，ACID ...）之后，将应用此目录中的所有更新。

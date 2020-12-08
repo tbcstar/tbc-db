@@ -1,95 +1,95 @@
-==================================================================
-====     ACID (Artificial Creature Intelligence Database)     ====
-==================================================================
+================================================== ================
+==== ACID（人工生物情报数据库）====
+================================================== ================
 
-/* Copyright (C) 2008 - 2016 ACID <http://www.scriptdev2.com/forums/6-ACID-Development>
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version. 
+/ *版权所有（C）2008-2016 ACID < http://www.scriptdev2.com/forums/6-ACID-Development >
+ *该程序是免费软件；您可以重新分发和/或修改
+ *它遵循由GNU发布的GNU通用公共许可证的条款
+ *自由软件基金会；许可版本2，或
+ *（您可以选择）任何更高版本。 
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *分发此程序是希望它会有用，
+ *但无任何保证；甚至没有默示担保
+ *特定目的的适销性或适用性。见
+ *有关更多详细信息，请参见GNU通用公共许可证。
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+ *您应该已经收到了GNU通用公共许可证的副本
+ *与该程序一起；如果没有，请写信给自由软件
+ * Foundation，Inc.，59 Temple Place，Suite 330，Boston，MA 02111-1307美国
+ * /
 
 =============
-What Is ACID?
+什么是ACID？
 =============
-ACID is a Database project to provide filling for MaNGOS' EventAI scripting engine.
+ACID是一个数据库项目，旨在为MaNGOS的EventAI脚本引擎提供填充。
 
-ACID is the primary NPC Combat Scripting project that works hand-in-hand with ScriptDev2 Project to provide a full scripted solution for World of Warcraft.
+ACID是主要的NPC战斗脚本项目，与ScriptDev2项目紧密配合，可为《魔兽世界》提供完整的脚本解决方案。
 
-I think you should consider ACID as a part of SD2, instead of looking at ACID as a single standalone project.
-ACID will take care of most Creature/NPC simple combat spells casted. If a creature has some hard phases or some extraordinary event, it will be scripted in ScriptDev2 (C++).
+我认为您应该将ACID视为SD2的一部分，而不是将ACID视为一个独立的项目。
+ACID会处理大多数生物/ NPC简单的战斗咒语。如果某个生物有一些困难时期或某些非同寻常的事件，它将使用ScriptDev2（C ++）编写脚本。
 
-ACID = Relatively Easy, not very complex, generic NPC combat and some visual/quest based scripting.
-SD2 = Harder and more complex NPC/Boss/Event/Instance/Gameobject scripting.
+ACID =相对容易，不是很复杂，通用的NPC战斗和一些基于视觉/任务的脚本。
+SD2 =难度更大，更复杂的NPC / Boss / Event / Instance / Gameobject脚本。
 
-ACID is responsible for all Creatures (Trash Mobs, Bosses, Quest NPCs) that are ABLE to be properly scripted within the limitations of EventAI. 
-If a script cannot be written in ACID properly then it will be requested from the SD2 project and written in C++ to implement PROPERLY.
-
-
-=====================================================================
-What does ACID Stand For and what is the ACID Development Philosophy?
-=====================================================================
-ACID project stands for nothing else but absolute perfection. Our goal is to make the absolute most authentic World of Warcraft experience possible.
-
-The developers for this project go to great lengths to get the most accurate data possible and the scripting is done with care and love of the game.
-
-This project is specifically organized and based on working along side SD2 / UDB / MaNGOS Projects.
-
-ACID does not take short cuts, nor do we compromise to get things working faster. We take the time to DO IT RIGHT no matter how difficult it is or how long it takes.
+ACID负责能够在EventAI的限制内正确编写脚本的所有生物（垃圾生物，老板，任务NPC）。 
+如果不能用ACID正确编写脚本，则会从SD2项目请求该脚本，并以C ++编写以正确实现。
 
 
-================================
-What are the ACID Project Goals?
-================================
-Our goal is to take care of ALL possible NPC Scripting that can be handled by EventAI using Official Data wherever possible.
+================================================== ===================
+ACID代表什么？什么是ACID开发理念？
+================================================== ===================
+ACID项目代表着绝对完美。我们的目标是使绝对最真实的《魔兽世界》体验成为可能。
 
-We currently support the following World of Warcraft Clients: 1.12.1 / 2.4.3 / 3.3.5a / 4.3.4
+该项目的开发人员竭尽全力以获取最准确的数据，并且脚本的编写是出于对游戏的谨慎和热爱。
+
+该项目是专门组织的，基于与SD2 / UDB / MaNGOS项目一起工作。
+
+ACID不会捷径，也不会为了让事情更快运行而妥协。无论花多长时间或花多长时间，我们都花时间做正确的事。
+
+
+===============================
+ACID项目目标是什么？
+===============================
+我们的目标是尽可能地保护EventAI使用官方数据可以处理的所有可能的NPC脚本。
+
+我们目前支持以下魔兽世界客户端：1.12.1 / 2.4.3 / 3.3.5a / 4.3.4
  
 
-============================================
-What is the difference between ACID and SD2?
-============================================
-ACID and SD2 are not "Linked" together. They are completely separate projects and separate coding... but as Devs we work together. And Yes they do compliment each other also. 
+===========================================
+ACID和SD2有什么区别？
+===========================================
+ACID和SD2没有“链接”在一起。它们是完全独立的项目和独立的编码...但是作为开发人员，我们一起工作。是的，他们也互相称赞。
 
-ACID and SD2 Projects are focused on working together to provide a combined All-In-One Scripting Solution.
+ACID和SD2项目专注于共同工作，以提供组合的多合一脚本解决方案。
 
-Generally SD2 handles special events/quests/encounters/Bosses while ACID will to all your regular old Trash Mobs and some Bosses who are simple and straight forward. 
+通常，SD2处理特殊事件/任务/遭遇/老板，而ACID会处理所有常规的旧垃圾小怪和一些简单明了的老板。 
 
-ACID also will handle some of the simple eye-candy stuff in the game also.
+ACID还可以处理游戏中一些简单的糖果。
 
-EventAI is a Database Based Scripting Engine. ACID Project is the project to fill in the Database for this scripting engine.
+EventAI是基于数据库的脚本引擎。ACID项目是用于为此脚本引擎填充数据库的项目。
 
-One thing to note, SD2 also handles Gameobject scripting as well. EventAI has NOTHING to do with Gameobject scripting AT ALL. This is one very large different between SD2 and EventAI. 
+需要注意的一件事是，SD2还可以处理Gameobject脚本。EventAI与Gameobject脚本无关。SD2和EventAI之间的差异非常大。
 
-SD2 is mainly designed to work as Boss / Instance / Gameobject Scripting.
+SD2主要设计为老板/实例/游戏对象脚本。
 
 
-============================
-Where do I get ACID Support?
-============================
-The official ACID IRC channel is on server irc.rizon.net channel #aciddev
+===========================
+在哪里可以获得ACID支持？
+===========================
+官方ACID IRC通道位于服务器irc.rizon.net通道#aciddev上
 
-For those that don't know what IRC is, it was the ORIGINAL instant messaging system. (look it up on wikipedia )
+对于那些不知道IRC是什么的人，它是原始的即时消息传递系统。（在Wikipedia上查找）
 
-http://www.mirc.com will get you started if you are a windows user.
+如果您是Windows用户，则http://www.mirc.com会帮助您入门。
 
-If anyone has questions regarding ACID or needs help with scripting with EventAI then feel free to come and join us. 
-This is a channel that will be dedicated to ACID and it's development and can provide support to members.
-If you require any help in general in getting a server up and running there are many people available to assist you in the ACID IRC Channel as well.
+如果有人对ACID有疑问或需要有关EventAI脚本编写的帮助，请随时加入我们。 
+这是一个专用于ACID及其开发的渠道，可以为成员提供支持。
+如果您通常在启动服务器和运行服务器方面需要任何帮助，那么还有很多人可以在ACID IRC频道为您提供帮助。
 
-Documentation is contained in the docs/  subdirectory.
+文档包含在docs /子目录中。
 
-Support and more documentation is also available on the ACID Forums located on the SD2 website: 
+也可以在SD2网站上的ACID论坛上获得支持和更多文档： 
 http://www.scriptdev2.com/forums/6-ACID-Development
 
-Thank you very much!
-X-Savior
+非常感谢你！
+X救星

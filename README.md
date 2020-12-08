@@ -18,30 +18,28 @@ Compatibility
 -------------
 The *TBC-DB* database is compatible with [mangos-tbc][10] core only.
 
-Getting started
+准备开始
 ---------------
-The basic principle behind this database repository is to have a single SQL file
-holding every table in the database. When something is changed into the database
-the modification is done by adding small SQL update files placed into the `updates` directory.
-Every time a user (that would be you or TBC-DB Developers) wishes to change something into the database, he/she
-have to create and add the right SQL file. This helps tracking what changes are made, when and where.
+该数据库存储库的基本原理是拥有一个SQL文件，该文件保存数据库中的每个表。
+将某些内容更改为数据库后，将通过在updates目录中添加小的SQL更新文件来完成修改。
+每当用户（可能是您或TBC-DB开发人员）希望将某些内容更改到数据库中时，
+他/她都必须创建并添加正确的SQL文件。这有助于跟踪在何时何地进行了哪些更改。
 
-Installation
+安装
 ------------
-**TBC-DB** is the main content database for: `tbcmangos` where the world is defined
-with creatures, items, objects, quests, etc.
+TBC-DB是以下内容的主要内容数据库：tbcmangos通过生物，物品，物体，任务等来定义世界。
 
-It must be applied after creating the `tbcmangos` database from your CMaNGOS core distribution [mangos-tbc][10] from [CMaNGOS Project][13].
+必须从CMaNGOS Project的tbcmangosCMaNGOS核心发行版mangos-tbc创建数据库后才能应用它。
 
-If you used the default values when installing your mangos core, simply run into a bash compatible shell (like Bash Git for Windows) the following command `./InstallFullDB.sh`.
+如果在安装mangos核心时使用了默认值，则只需在以下命令中运行兼容bash的shell（例如Windows的Bash Git）即可./InstallFullDB.sh。
 
-It will create a single file InstallFullDB.config .
+它将创建一个文件InstallFullDB.config。
 
-If you have modified the default values for connecting to the database, in order to use this database repository, you will have to open `InstallFullDB.config`, and edit in the desired database, username and password according to how you have configured your MySQL server. Default values for mangos core are `username:mangos`, `password:mangos`, `database:mangos`. For security reasons, it is strongly adviced to use different username and password.
+如果您已修改用于连接数据库的默认值，则要使用此数据库存储库，您将必须InstallFullDB.config根据配置MySQL服务器的方式打开，并在所需的数据库，用户名和密码中进行编辑。对于芒果核心默认值是username:mangos，password:mangos，database:mangos。出于安全原因，强烈建议使用其他用户名和密码。
 
-Once you have the desired database user and rights configured in MySQL, you may run again the `./InstallFullDB.sh` command to load the individual data tables into your database, populate them and apply all updates since the last milestone.
+一旦在MySQL中配置了所需的数据库用户和权限，就可以再次运行该./InstallFullDB.sh命令以将各个数据表加载到数据库中，填充它们并应用自上一个里程碑以来的所有更新。
 
-For a full installation guide, please refer to [CMaNGOS installation instructions][14].
+有关完整的安装指南，请参阅CMaNGOS安装说明。
 
 Contributing
 ------------

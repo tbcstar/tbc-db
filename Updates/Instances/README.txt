@@ -1,32 +1,32 @@
-=============================
-CMaNGOS TBC-DB INSTANCE FILES
-=============================
+============================
+CMaNGOS TBC-DB实例文件
+============================
 
 ------------------------------
-How do I use an instance file?
+如何使用实例文件？
 ------------------------------
 
-This set of files is included by default at the very end of a full TBC-DB build via the install script.
-Instance files are preserved between releases and prioritized higher than regular DB updates.
+在完整的TBC-DB构建的最后阶段，默认情况下会通过安装脚本包含这组文件。
+实例文件在版本之间被保留，并且其优先级高于常规数据库更新。
 
-Whenever you are working with any creature/object guids which are inside of dungeons or raids, you'll need to be modifying the corresponding instance file.
-If changes are made outside an instance file which should have been contained within, they risk not being applied properly upon fresh DB build.
+每当您使用地牢或团队副本内的任何生物/物体的guid时，都需要修改相应的实例文件。
+如果在应包含在其中的实例文件之外进行更改，则可能会在新的数据库构建中无法正确应用更改。
 
-Please make use of the provided variables (@CGUID+XXX and @OGUID+XXX) when adding new creature and gameobject guids instead of hardcoding numbers in the files.
-Try to follow the format and conventions of other authors before you so the content stays consistent and easy to understand.
+在添加新生物和游戏对象向导时，请使用提供的变量（@ CGUID + XXX和@ OGUID + XXX），而不是对文件中的数字进行硬编码。
+在尝试之前，请遵循其他作者的格式和约定，以使内容保持一致并易于理解。
 
-Don't be afraid to add comments and spacing to make things more clear/readable!
+不要害怕添加注释和空格以使内容更清晰/可读！
 
-Keep in mind that all of these files are still very much a work in progress - there is much to be improved on and added.
-If you're looking for something to do, check the comments in the top header of each instance file. This space is reserved for any TODO notes and open related issues for the instance.
+请记住，所有这些文件仍在进行中，还有很多地方需要改进和补充。
+如果您正在寻找要做的事情，请检查每个实例文件顶部标题中的注释。该空间为任何TODO注释保留，并为实例打开了相关问题。
 
 --------------------------------------------------
-Which data should be maintained in instance files?
+实例文件中应维护哪些数据？
 --------------------------------------------------
 
-As a general rule of thumb, if the table/record references the guid of a specific creature or gameobject inside of a dungeon/raid, then it belongs.
+作为一般经验法则，如果表/记录引用了地牢/突袭内部特定生物或游戏对象的引导，则它属于。
 
-Tables which usually contain the relevant data:
+通常包含相关数据的表：
 - creature
 - creature_movement
 - creature_addon
@@ -36,9 +36,9 @@ Tables which usually contain the relevant data:
 - pool_creature/gameobject
 - gameobject/creature_battleground
 
-Try to keep modifications to data from other tables (such as loot, gossip, creature/gameobject_template, etc.) within regular incremental DB updates as normal.
+尝试在常规增量数据库更新中正常保留对来自其他表（例如 loot, gossip, creature/gameobject_template, 等）中数据的修改。
 
-Do NOT use the files at this time for anything spawned in the following maps:
-0 - Eastern Kingdoms
-1 - Kalimdor
-530 - Outland
+目前，请勿将这些文件用于以下地图中产生的任何内容：
+0-东方王国
+1-卡利姆多
+530-外域

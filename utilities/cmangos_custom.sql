@@ -1,36 +1,36 @@
 -- -------------------------------
--- CMaNGOS custom DB updates
+-- CMaNGOS自定义DB更新
 -- -------------------------------
 
--- This file holds SQL updates to DB contents that are known to be different from official/sniff data
--- These updates are applied to ensure expected functionning from a gameplay point of view
--- (aka "Blizzlike") when using CMaNGOS core.
+-- 该文件包含对数据库内容的SQL更新，这些更新已知与官方/嗅探数据不同
+-- 这些更新适用于确保从游戏角度出发的预期功能
+-- （使用CMaNGOS核心时，又名“ Blizzlike”）。
 --
--- These updates SHOULD NOT be part of a full DB dump (like for DB release) or inserted in a regular 
--- SQL update file as we need to keep DB data as "pure" as possible to analyse them and
--- deduce proper core behaviour from them.
+-- 这些更新不应该是完整数据库转储的一部分（如数据库版本一样）或插入常规文件中
+-- SQL更新文件，我们需要保持DB数据作为“纯”尽可能地对它们进行分析和
+-- 从中推断出正确的核心行为。
 -- 
--- Possible but non-exhaustive reasons for these updates to be needed:
---	- CMaNGOS core does not properly handle the data these updates are fixing (yet)
---	- Official/sniff data are from a different expansion/patch and where possibly changed since Classic
---	- Official/sniff data from client are different from what they are server-side
---	- Data or their parsing were wrong
+-- 需要这些更新的可能但非详尽的理由:
+--	- CMaNGOS内核没有正确处理这些更新修复的数据(还没有)
+--	- 官方/嗅探数据来自于不同的扩展/补丁，并且可能自经典版本以来发生了变化
+--	- 来自客户端的官方/嗅探数据与服务器端数据不同
+--	- 数据或解析错误
 
 
 -- -------------------------------
--- Gameobject custom changes
+-- Gameobject 自定义修改
 -- -------------------------------
 
 -- ============================================================
--- Classic section
+-- 经典的部分
 -- ============================================================
 -- Make Moonwell GO server-side (visible by GM only)
 UPDATE gameobject_template SET data3=1 WHERE entry=177272; 
 
--- Set radius of Supply Crate trap to zero to prevent trap from triggering with coming by players (it should trigger on player usage of original GO)
+-- 将补给箱陷阱的半径设置为零，以防止当玩家到来时触发陷阱(它应该在玩家使用原始围棋时触发)
 UPDATE gameobject_template SET data2=0 WHERE entry IN (175534, 175535, 175536, 175537);
 
--- Make Dawn's Gambit Trap only visible by GM
+-- 让Dawn's的陷阱只被GM看到
 UPDATE gameobject_template SET data2=5, data3=0, data8=0 WHERE entry=176110;
 -- Dawn's Gambit: add data from GO trap 176110 until we are able to trigger trap GOs without spells
 UPDATE gameobject_template SET data2=5, data3=18110, data4=1, data8=1 WHERE entry=177304; 
@@ -43,18 +43,18 @@ DELETE FROM gameobject_template WHERE entry=175622;
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, `Data10`, `Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, `Data21`, `Data22`, `Data23`) VALUES
 (175622, 6, 477, 'Rookery Egg Spawner', 1, 0, 0, 2, 15745, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
--- Set 10 yards radius to Night Elven Bear Trap GO because it needs to be triggered by SD2 script otherwise (and said script do not exist yet)
+-- 设置10码半径的夜精灵捕熊器走，因为它需要被SD2脚本触发否则(该脚本还不存在)
 UPDATE gameobject_template SET data2=10 WHERE entry=109515;
 
--- Set a 70 yards diameter for Ragnaros GO because because it needs to be triggered by SD2 script otherwise (and said script do not exist yet)
+-- 为Ragnaros GO设置一个70码的直径，因为它需要被SD2脚本触发(而这个脚本还不存在)
 UPDATE gameobject_template SET data2=70 WHERE entry=178088;
 
--- Currently the core cannot make a GO usable for a specific quest if the items it holds are not objectives of the quest
+-- 目前，如果核心所持有的物品不是任务的目标，那么它就不能在特定任务中使用
 
 -- Link Hive'Ashi Pod GO to quest 1126 so it is usable by players on the quest
 UPDATE gameobject_template SET data8=1126 WHERE entry=178553; 
 
--- Link Azsharite GOs to quest 3602 so they are usable by players on the quest
+-- 链接紫水晶GOs到任务3602，这样玩家可以在任务中使用它们
 UPDATE gameobject_template SET data8=3602 WHERE entry IN (152620, 152621, 152622, 152631);
 
 -- Link Crate with Holes, Snufflenose Command Stick and Snufflenose Owner's Manual GOs to quest 1221 so they are usable by players on the quest
@@ -65,11 +65,11 @@ UPDATE gameobject_template SET data1=3701 WHERE entry=153556;
 
 UPDATE `gameobject` SET `position_z` = 133.60325 WHERE `guid` = 132224 AND `id` = 176589; -- Black Lotus Sniff Z = -61.28984
 
--- Make object 181444 (Kel'Thuzad Trigger) despawnable on usage
+-- 使181444(克尔苏加德触发器)在使用时不可使用
 UPDATE gameobject_template SET data4=1 WHERE entry=181444;
 
 -- ============================================================
--- TBC section
+-- TBC的部分
 -- ============================================================
 -- Hellfire Hot Spot Spreader
 UPDATE gameobject_template SET data8=1 WHERE entry=183929; -- set serverside so that it's not visible to players
@@ -84,24 +84,24 @@ UPDATE gameobject_template SET data3=0, data8=1 WHERE entry=178673; -- 21650, 0
 UPDATE gameobject_template SET data15=1 WHERE entry IN(186648);
 
 -- -------------------------------
--- Item custom changes
+-- 物品自定义修改
 -- -------------------------------
 
 -- ============================================================
--- Classic section
+-- 经典的部分
 -- ============================================================
 
--- Mana Agate should have class=0 like all other mana gems
+-- 魔法玛瑙应该和其他魔法宝石一样有等级=0
 UPDATE item_template SET class=0 WHERE entry=5514;
 
 -- -------------------------------
--- Creature custom changes
+-- 生物自定义修改
 -- -------------------------------
 
 -- None
 
 -- -------------------------------
--- Quest custom changes
+-- 任务自定义修改
 -- -------------------------------
 
 -- None
